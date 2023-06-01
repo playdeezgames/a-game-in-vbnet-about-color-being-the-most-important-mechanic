@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33723.286
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "AGameInVbNetAboutColorBeingTheMostImportantMechanic", "AGameInVbNetAboutColorBeingTheMostImportantMechanic\AGameInVbNetAboutColorBeingTheMostImportantMechanic.vbproj", "{DA27AC51-3E59-4B8C-BE1B-088C7A2D1A3D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_STUFF", "_STUFF", "{4F06A7AB-194B-4805-AF60-787B04719917}"
+	ProjectSection(SolutionItems) = preProject
+		..\.gitignore = ..\.gitignore
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DA27AC51-3E59-4B8C-BE1B-088C7A2D1A3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA27AC51-3E59-4B8C-BE1B-088C7A2D1A3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA27AC51-3E59-4B8C-BE1B-088C7A2D1A3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA27AC51-3E59-4B8C-BE1B-088C7A2D1A3D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {00B6538D-7CE2-427B-A036-1526E7082A35}
+	EndGlobalSection
+EndGlobal
