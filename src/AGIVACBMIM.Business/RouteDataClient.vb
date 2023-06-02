@@ -3,6 +3,7 @@
     Protected ReadOnly Direction As String
     Public Sub New(worldData As WorldData, locationId As Integer, direction As String)
         MyBase.New(worldData, locationId)
+        Me.Direction = direction
     End Sub
     Protected ReadOnly Property RouteData As RouteData
         Get
