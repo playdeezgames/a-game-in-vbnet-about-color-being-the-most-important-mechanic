@@ -9,6 +9,7 @@
     ".NETCoreApp,Version=v6.0/linux-x64": {
       "AGameInVbNetAboutColorBeingTheMostImportantMechanic/1.0.0": {
         "dependencies": {
+          "AGIVACBMIM.Application": "1.0.0",
           "runtimepack.Microsoft.NETCore.App.Runtime.linux-x64": "6.0.16"
         },
         "runtime": {
@@ -722,6 +723,55 @@
             "fileVersion": "0.0.0.0"
           }
         }
+      },
+      "Spectre.Console/0.47.0": {
+        "dependencies": {
+          "System.Memory": "4.5.5"
+        },
+        "runtime": {
+          "lib/net6.0/Spectre.Console.dll": {
+            "assemblyVersion": "0.0.0.0",
+            "fileVersion": "0.47.0.0"
+          }
+        }
+      },
+      "System.Memory/4.5.5": {},
+      "AGIVACBMIM.Application/1.0.0": {
+        "dependencies": {
+          "AGIVACBMIM.Business": "1.0.0",
+          "AGIVACBMIM.Initializer": "1.0.0",
+          "Spectre.Console": "0.47.0"
+        },
+        "runtime": {
+          "AGIVACBMIM.Application.dll": {}
+        }
+      },
+      "AGIVACBMIM.Business/1.0.0": {
+        "dependencies": {
+          "AGIVACBMIM.Data": "1.0.0"
+        },
+        "runtime": {
+          "AGIVACBMIM.Business.dll": {}
+        }
+      },
+      "AGIVACBMIM.Data/1.0.0": {
+        "runtime": {
+          "AGIVACBMIM.Data.dll": {}
+        }
+      },
+      "AGIVACBMIM.Initializer/1.0.0": {
+        "dependencies": {
+          "AGIVACBMIM.Business": "1.0.0",
+          "SPLORR.Game": "1.0.0"
+        },
+        "runtime": {
+          "AGIVACBMIM.Initializer.dll": {}
+        }
+      },
+      "SPLORR.Game/1.0.0": {
+        "runtime": {
+          "SPLORR.Game.dll": {}
+        }
       }
     }
   },
@@ -733,6 +783,45 @@
     },
     "runtimepack.Microsoft.NETCore.App.Runtime.linux-x64/6.0.16": {
       "type": "runtimepack",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Spectre.Console/0.47.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-wz8mszcZr0cSOo8GyoG9e2DFW0SkMT8/n78Q/lIXX7EbCtHNXOoOKWpJ9Str+rCYtmQOGGyDutZzubrUHK/XkA==",
+      "path": "spectre.console/0.47.0",
+      "hashPath": "spectre.console.0.47.0.nupkg.sha512"
+    },
+    "System.Memory/4.5.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-XIWiDvKPXaTveaB7HVganDlOCRoj03l+jrwNvcge/t8vhGYKvqV+dMv6G4SAX2NoNmN0wZfVPTAlFwZcZvVOUw==",
+      "path": "system.memory/4.5.5",
+      "hashPath": "system.memory.4.5.5.nupkg.sha512"
+    },
+    "AGIVACBMIM.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "AGIVACBMIM.Business/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "AGIVACBMIM.Data/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "AGIVACBMIM.Initializer/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SPLORR.Game/1.0.0": {
+      "type": "project",
       "serviceable": false,
       "sha512": ""
     }
