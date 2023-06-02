@@ -5,8 +5,22 @@ Friend Module MainMenu
         Do
             AnsiConsole.Clear()
             Dim prompt As New SelectionPrompt(Of String) With {.Title = MainMenuTitle}
-            prompt.AddChoice(QuitText)
+            If Context.World IsNot Nothing Then
+                prompt.AddChoice(ContinueText)
+                prompt.AddChoice(AbandonText)
+            Else
+                prompt.AddChoice(EmbarkText)
+                prompt.AddChoice(QuitText)
+            End If
             Select Case AnsiConsole.Prompt(prompt)
+                Case AbandonText
+                    If ConfirmPrompt(AbandonGameTitle) Then
+                        Context.Abandon()
+                    End If
+                Case ContinueText
+                    InPlay.Run()
+                Case EmbarkText
+                    Embark.Run()
                 Case QuitText
                     If ConfirmPrompt(ConfirmQuitTitle) Then
                         Exit Do

@@ -4,7 +4,7 @@
     <RootNamespace>AGIVACBMIM.Application</RootNamespace>
     <TargetFramework>netstandard2.0</TargetFramework>
     <OptionStrict>On</OptionStrict>
-    <ImportedNamespaces>AGIVACBMIM.Business=False,Spectre.Console=False,Microsoft.VisualBasic=True,System=True,System.Collections=True,System.Collections.Generic=True,System.Diagnostics=True,System.Linq=True,System.Xml.Linq=True,System.Threading.Tasks=True,AGIVACBMIM.Application=True</ImportedNamespaces>
+    <ImportedNamespaces>AGIVACBMIM.Business=False,AGIVACBMIM.Data=False,AGIVACBMIM.Initializer=False,Spectre.Console=False,Microsoft.VisualBasic=True,System=True,System.Collections=True,System.Collections.Generic=True,System.Diagnostics=True,System.Linq=True,System.Xml.Linq=True,System.Threading.Tasks=True,AGIVACBMIM.Application=True</ImportedNamespaces>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -21,11 +21,14 @@
 
   <ItemGroup>
     <Import Include="AGIVACBMIM.Business" />
+    <Import Include="AGIVACBMIM.Data" />
+    <Import Include="AGIVACBMIM.Initializer" />
     <Import Include="Spectre.Console" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\AGIVACBMIM.Business\AGIVACBMIM.Business.vbproj" />
+    <ProjectReference Include="..\AGIVACBMIM.Initializer\AGIVACBMIM.Initializer.vbproj" />
   </ItemGroup>
 
 </Project>
