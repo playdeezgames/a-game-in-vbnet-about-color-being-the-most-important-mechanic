@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <RootNamespace>AGIVACBMIM.Initializer</RootNamespace>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>netstandard2.1</TargetFramework>
     <OptionStrict>On</OptionStrict>
     <ImportedNamespaces>AGIVACBMIM.Business=False,Microsoft.VisualBasic=True,System=True,System.Collections=True,System.Collections.Generic=True,System.Diagnostics=True,System.Linq=True,System.Xml.Linq=True,System.Threading.Tasks=True,AGIVACBMIM.Initializer=True</ImportedNamespaces>
   </PropertyGroup>
@@ -16,6 +16,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\abettor-of-splorr\src\SPLORR.Game\SPLORR.Game.vbproj" />
     <ProjectReference Include="..\AGIVACBMIM.Business\AGIVACBMIM.Business.vbproj" />
   </ItemGroup>
 
