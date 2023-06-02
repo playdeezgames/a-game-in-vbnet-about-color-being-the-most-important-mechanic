@@ -4,6 +4,7 @@
     <RootNamespace>AGIVACBMIM.Business</RootNamespace>
     <TargetFramework>netstandard2.0</TargetFramework>
     <OptionStrict>On</OptionStrict>
+    <ImportedNamespaces>AGIVACBMIM.Data=False,Microsoft.VisualBasic=True,System=True,System.Collections=True,System.Collections.Generic=True,System.Diagnostics=True,System.Linq=True,System.Xml.Linq=True,System.Threading.Tasks=True,AGIVACBMIM.Business=True</ImportedNamespaces>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -13,5 +14,13 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AGIVACBMIM.Data\AGIVACBMIM.Data.vbproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Import Include="AGIVACBMIM.Data" />
+  </ItemGroup>
 
 </Project>
