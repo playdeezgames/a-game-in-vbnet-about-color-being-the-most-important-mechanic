@@ -15,9 +15,8 @@ Friend Module OverworldInitializer
                 For Each direction In Directions.Cardinal
                     Dim nextColumn = Directions.NextColumn(direction, column, row)
                     Dim nextRow = Directions.NextRow(direction, column, row)
-                    If nextColumn < 0 OrElse nextRow < 0 OrElse nextColumn >= OverworldColumns OrElse nextRow >= OverworldRows Then
-                        Continue For
-                    End If
+                    nextColumn = If(nextColumn < 0, nextColumn + OverworldColumns, If(nextColumn >= OverworldColumns, nextColumn - OverworldColumns, nextColumn))
+                    nextRow = If(nextRow < 0, nextRow + OverworldRows, If(nextRow >= OverworldRows, nextRow - OverworldRows, nextRow))
                     locations(column, row).CreateRoute(direction, locations(nextColumn, nextRow))
                 Next
             Next
