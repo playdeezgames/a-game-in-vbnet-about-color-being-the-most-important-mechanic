@@ -16,6 +16,15 @@
                 Next
             End If
 
+            Dim otherCharacters = location.OtherCharacters(avatar)
+            If otherCharacters.Any Then
+                AnsiConsole.WriteLine()
+                AnsiConsole.MarkupLine("Other Characters:")
+                For Each character In otherCharacters
+                    AnsiConsole.MarkupLine($"    {character.Name}")
+                Next
+            End If
+
             Dim prompt As New SelectionPrompt(Of String) With {.Title = NowWhatTitle}
             If avatar.Location.HasRoutes Then
                 prompt.AddChoice(MoveText)

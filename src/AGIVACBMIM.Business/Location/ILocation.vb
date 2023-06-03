@@ -7,4 +7,6 @@
     ReadOnly Property Routes As IEnumerable(Of IRoute)
     Function HasRoute(direction As String) As Boolean
     ReadOnly Property Route(direction As String) As IRoute
+    ReadOnly Property OtherCharacters(character As ICharacter) As IEnumerable(Of ICharacter)
+    ReadOnly Property Characters As IEnumerable(Of ICharacter)
 End Interface
