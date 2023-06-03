@@ -5,7 +5,9 @@
             AnsiConsole.MarkupLine("Yer so playing the game right now!")
             Dim avatar = World.Avatar
             Dim location = avatar.Location
-            AnsiConsole.MarkupLine($"Location Id: {location.Id}")
+            AnsiConsole.MarkupLine($"
+Location: 
+    {location.Name}")
 
             If location.HasRoutes Then
                 Dim routes = location.Routes
@@ -25,6 +27,7 @@
                 Next
             End If
 
+            AnsiConsole.WriteLine()
             Dim prompt As New SelectionPrompt(Of String) With {.Title = NowWhatTitle}
             If avatar.Location.HasRoutes Then
                 prompt.AddChoice(MoveText)

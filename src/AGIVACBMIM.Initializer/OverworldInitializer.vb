@@ -7,7 +7,7 @@ Friend Module OverworldInitializer
         Dim locations(OverworldColumns, OverworldRows) As ILocation
         For column = 0 To OverworldColumns - 1
             For row = 0 To OverworldRows - 1
-                locations(column, row) = world.CreateLocation()
+                locations(column, row) = world.CreateLocation($"Zone {ChrW(column + 65)}{row + 1}")
             Next
         Next
         For column = 0 To OverworldColumns - 1

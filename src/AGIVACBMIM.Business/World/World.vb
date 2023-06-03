@@ -41,9 +41,9 @@
         End Get
     End Property
 
-    Public Function CreateLocation() As ILocation Implements IWorld.CreateLocation
+    Public Function CreateLocation(name As String) As ILocation Implements IWorld.CreateLocation
         Dim locationId = WorldData.Locations.Count
-        WorldData.Locations.Add(New LocationData)
+        WorldData.Locations.Add(New LocationData With {.Name = name})
         Return New Location(WorldData, locationId)
     End Function
 

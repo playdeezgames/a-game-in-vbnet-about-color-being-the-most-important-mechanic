@@ -9,4 +9,5 @@
     ReadOnly Property Route(direction As String) As IRoute
     ReadOnly Property OtherCharacters(character As ICharacter) As IEnumerable(Of ICharacter)
     ReadOnly Property Characters As IEnumerable(Of ICharacter)
+    ReadOnly Property Name As String
 End Interface
