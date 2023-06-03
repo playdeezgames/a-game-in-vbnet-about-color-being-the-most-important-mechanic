@@ -6,12 +6,12 @@ Friend Module CharacterInitializer
             Dim descriptor = CharacterTypes.Descriptors(characterType)
             Dim spawnCount = descriptor.SpawnCount
             While spawnCount > 0
-                SpawnCharacter(world, characterType)
+                SpawnCharacter(world, characterType, descriptor)
                 spawnCount -= 1
             End While
         Next
     End Sub
-    Private Sub SpawnCharacter(world As IWorld, characterType As String)
-        world.CreateCharacter(characterType, RNG.FromEnumerable(world.Locations))
+    Private Sub SpawnCharacter(world As IWorld, characterType As String, descriptor As CharacterTypeDescriptor)
+        world.CreateCharacter(characterType, descriptor.Name, RNG.FromEnumerable(world.Locations))
     End Sub
 End Module

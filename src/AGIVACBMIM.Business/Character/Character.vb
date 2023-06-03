@@ -27,7 +27,7 @@
 
     Public ReadOnly Property Name As String Implements ICharacter.Name
         Get
-            Return $"{CharacterType}(#{Id})"
+            Return CharacterData.Name
         End Get
     End Property
 
