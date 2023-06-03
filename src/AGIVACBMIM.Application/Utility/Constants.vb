@@ -5,6 +5,7 @@
     Friend Const ContinueText = "Continue"
     Friend Const EmbarkText = "Embark!"
     Friend Const GameTitle = "A Game about Color Being the Most Important Mechanic"
+    Friend Const InteractText = "Interact..."
     Friend Const MainMenuTitle = "[olive]Main Menu:[/]"
     Friend Const MainMenuText = "Main Menu"
     Friend Const MoveTitle = "Move Title"

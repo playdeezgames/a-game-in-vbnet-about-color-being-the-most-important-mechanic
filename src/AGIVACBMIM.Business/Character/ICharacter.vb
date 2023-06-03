@@ -4,4 +4,5 @@
     Sub Move(direction As String)
     ReadOnly Property CharacterType As String
     ReadOnly Property Name As String
+    ReadOnly Property CanInteract As Boolean
 End Interface

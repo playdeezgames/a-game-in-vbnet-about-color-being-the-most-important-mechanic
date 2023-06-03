@@ -31,6 +31,12 @@
         End Get
     End Property
 
+    Public ReadOnly Property CanInteract As Boolean Implements ICharacter.CanInteract
+        Get
+            Return False
+        End Get
+    End Property
+
     Public Sub Move(direction As String) Implements ICharacter.Move
         If Location.HasRoute(direction) Then
             Location = Location.Route(direction).ToLocation

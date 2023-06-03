@@ -29,8 +29,11 @@ Location:
 
             AnsiConsole.WriteLine()
             Dim prompt As New SelectionPrompt(Of String) With {.Title = NowWhatTitle}
-            If avatar.Location.HasRoutes Then
+            If location.HasRoutes Then
                 prompt.AddChoice(MoveText)
+            End If
+            If otherCharacters.Any(Function(x) x.CanInteract) Then
+                prompt.AddChoice(InteractText)
             End If
             prompt.AddChoice(MainMenuText)
             Select Case AnsiConsole.Prompt(prompt)
