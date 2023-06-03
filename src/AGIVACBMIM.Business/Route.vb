@@ -9,9 +9,9 @@
             Return New Location(WorldData, RouteData.ToLocationId)
         End Get
     End Property
-    Private ReadOnly Property IRoute_Direction As String Implements IRoute.Direction
+    Private ReadOnly Property Direction As String Implements IRoute.Direction
         Get
-            Return Direction
+            Return DirectionId
         End Get
     End Property
 End Class
