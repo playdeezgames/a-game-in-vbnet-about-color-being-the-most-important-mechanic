@@ -21,15 +21,37 @@
         End Set
     End Property
 
+    Public ReadOnly Property Locations As IEnumerable(Of ILocation) Implements IWorld.Locations
+        Get
+            Dim result = New List(Of ILocation)
+            For index = 0 To WorldData.Locations.Count - 1
+                result.Add(New Location(WorldData, index))
+            Next
+            Return result
+        End Get
+    End Property
+
+    Public ReadOnly Property Characters As IEnumerable(Of ICharacter) Implements IWorld.Characters
+        Get
+            Dim result = New List(Of ICharacter)
+            For index = 0 To WorldData.Characters.Count - 1
+                result.Add(New Character(WorldData, index))
+            Next
+            Return result
+        End Get
+    End Property
+
     Public Function CreateLocation() As ILocation Implements IWorld.CreateLocation
         Dim locationId = WorldData.Locations.Count
         WorldData.Locations.Add(New LocationData)
         Return New Location(WorldData, locationId)
     End Function
 
-    Public Function CreateCharacter(location As ILocation) As ICharacter Implements IWorld.CreateCharacter
+    Public Function CreateCharacter(characterType As String, location As ILocation) As ICharacter Implements IWorld.CreateCharacter
         Dim characterId = WorldData.Characters.Count
-        WorldData.Characters.Add(New CharacterData With {.LocationId = location.Id})
+        WorldData.Characters.Add(New CharacterData With {
+                                 .CharacterType = characterType,
+                                 .LocationId = location.Id})
         Dim result = New Character(WorldData, characterId)
         result.Location = location
         Return result

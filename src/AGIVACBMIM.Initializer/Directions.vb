@@ -3,7 +3,7 @@
     Friend Const East = "East"
     Friend Const South = "South"
     Friend Const West = "West"
-    Friend ReadOnly CardinalDirections As IReadOnlyList(Of String) =
+    Friend ReadOnly Cardinal As IReadOnlyList(Of String) =
         New List(Of String) From
         {
             North,

@@ -12,7 +12,7 @@ Friend Module OverworldInitializer
         Next
         For column = 0 To OverworldColumns - 1
             For row = 0 To OverworldRows - 1
-                For Each direction In Directions.CardinalDirections
+                For Each direction In Directions.Cardinal
                     Dim nextColumn = Directions.NextColumn(direction, column, row)
                     Dim nextRow = Directions.NextRow(direction, column, row)
                     If nextColumn < 0 OrElse nextRow < 0 OrElse nextColumn >= OverworldColumns OrElse nextRow >= OverworldRows Then
@@ -22,6 +22,5 @@ Friend Module OverworldInitializer
                 Next
             Next
         Next
-        world.Avatar = world.CreateCharacter(locations(RNG.FromRange(0, OverworldColumns - 1), RNG.FromRange(0, OverworldRows - 1)))
     End Sub
 End Module

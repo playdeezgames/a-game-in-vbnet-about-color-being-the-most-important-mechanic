@@ -19,7 +19,11 @@
             Location.AddCharacter(Me)
         End Set
     End Property
-
+    Public ReadOnly Property CharacterType As String Implements ICharacter.CharacterType
+        Get
+            Return CharacterData.CharacterType
+        End Get
+    End Property
     Public Sub Move(direction As String) Implements ICharacter.Move
         If Location.HasRoute(direction) Then
             Location = Location.Route(direction).ToLocation
