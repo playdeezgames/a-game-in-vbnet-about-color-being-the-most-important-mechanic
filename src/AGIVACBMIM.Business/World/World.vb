@@ -41,6 +41,10 @@
         End Get
     End Property
 
+    Public Sub Save(filename As String) Implements IWorld.Save
+        File.WriteAllText(filename, JsonSerializer.Serialize(WorldData))
+    End Sub
+
     Public Function CreateLocation(name As String) As ILocation Implements IWorld.CreateLocation
         Dim locationId = WorldData.Locations.Count
         WorldData.Locations.Add(New LocationData With {.Name = name})
@@ -56,5 +60,12 @@
         Dim result = New Character(WorldData, characterId)
         result.Location = location
         Return result
+    End Function
+    Public Shared Function Load(filename As String) As IWorld
+        Try
+            Return New World(JsonSerializer.Deserialize(Of WorldData)(File.ReadAllText(filename)))
+        Catch ex As Exception
+            Return Nothing
+        End Try
     End Function
 End Class

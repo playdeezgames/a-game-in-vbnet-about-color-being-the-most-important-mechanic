@@ -4,4 +4,5 @@ Public Interface IWorld
     Property Avatar As ICharacter
     ReadOnly Property Locations As IEnumerable(Of ILocation)
     ReadOnly Property Characters As IEnumerable(Of ICharacter)
+    Sub Save(filename As String)
 End Interface
