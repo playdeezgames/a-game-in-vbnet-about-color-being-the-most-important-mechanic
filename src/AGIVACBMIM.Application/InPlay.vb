@@ -2,8 +2,9 @@
     Friend Sub Run()
         Do
             AnsiConsole.Clear()
-            AnsiConsole.MarkupLine("Yer so playing the game right now!")
             Dim avatar = World.Avatar
+            AnsiConsole.MarkupLine($"{avatar.Name}:")
+            AnsiConsole.MarkupLine($"    Energy: {avatar.Energy}/{avatar.MaximumEnergy}")
             Dim location = avatar.Location
             AnsiConsole.MarkupLine($"
 Location: 

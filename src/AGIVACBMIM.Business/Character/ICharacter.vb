@@ -5,4 +5,5 @@
     ReadOnly Property CharacterType As String
     ReadOnly Property Name As String
     ReadOnly Property CanInteract As Boolean
+    Function GetStatistic(statisticType As String) As Integer
 End Interface

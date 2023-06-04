@@ -51,15 +51,20 @@
         Return New Location(WorldData, locationId)
     End Function
 
-    Public Function CreateCharacter(characterType As String, name As String, location As ILocation) As ICharacter Implements IWorld.CreateCharacter
+    Public Function CreateCharacter(
+                            characterType As String,
+                            name As String,
+                            location As ILocation,
+                            Optional statistics As IReadOnlyDictionary(Of String, Integer) = Nothing) As ICharacter Implements IWorld.CreateCharacter
         Dim characterId = WorldData.Characters.Count
         WorldData.Characters.Add(New CharacterData With {
                                  .CharacterType = characterType,
                                  .LocationId = location.Id,
-                                 .Name = name})
-        Dim result = New Character(WorldData, characterId)
-        result.Location = location
-        Return result
+                                 .Name = name,
+                                 .Statistics = statistics.ToDictionary(Function(x) x.Key, Function(x) x.Value)})
+        Return New Character(WorldData, characterId) With {
+            .Location = location
+        }
     End Function
     Public Shared Function Load(filename As String) As IWorld
         Try

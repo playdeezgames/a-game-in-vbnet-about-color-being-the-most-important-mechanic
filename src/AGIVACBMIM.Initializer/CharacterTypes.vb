@@ -2,7 +2,16 @@
     Friend ReadOnly Descriptors As IReadOnlyDictionary(Of String, CharacterTypeDescriptor) =
         New Dictionary(Of String, CharacterTypeDescriptor) From
         {
-            {N00b, New CharacterTypeDescriptor("N00b", spawnCount:=1)},
+            {
+                N00b,
+                New CharacterTypeDescriptor(
+                    "N00b",
+                    spawnCount:=1,
+                    statistics:=New Dictionary(Of String, Integer) From
+                    {
+                        {StatisticTypes.MaximumEnergy, 100},
+                        {StatisticTypes.Energy, 100}
+                    })},
             {Color, New CharacterTypeDescriptor("Color, the most important mechanic", spawnCount:=1)},
             {Hue, New CharacterTypeDescriptor("Hue, the mechanic", spawnCount:=1)},
             {Shade, New CharacterTypeDescriptor("Shade, the mechanic", spawnCount:=1)},

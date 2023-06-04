@@ -42,4 +42,8 @@
             Location = Location.Route(direction).ToLocation
         End If
     End Sub
+
+    Public Function GetStatistic(statisticType As String) As Integer Implements ICharacter.GetStatistic
+        Return CharacterData.Statistics(statisticType)
+    End Function
 End Class

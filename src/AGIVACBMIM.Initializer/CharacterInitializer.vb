@@ -12,6 +12,10 @@ Friend Module CharacterInitializer
         Next
     End Sub
     Private Sub SpawnCharacter(world As IWorld, characterType As String, descriptor As CharacterTypeDescriptor)
-        world.CreateCharacter(characterType, descriptor.Name, RNG.FromEnumerable(world.Locations))
+        world.CreateCharacter(
+            characterType,
+            descriptor.Name,
+            RNG.FromEnumerable(world.Locations),
+            statistics:=descriptor.Statistics)
     End Sub
 End Module
