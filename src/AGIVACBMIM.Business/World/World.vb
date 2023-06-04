@@ -73,4 +73,5 @@
             Return Nothing
         End Try
     End Function
+    Public Shared Property Verbs As IReadOnlyDictionary(Of String, IVerb)
 End Class

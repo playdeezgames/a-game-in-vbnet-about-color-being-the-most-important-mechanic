@@ -18,7 +18,7 @@
                         Context.Abandon()
                     End If
                 Case ContinueText
-                    InPlay.Run()
+                    MainLoop.Run()
                 Case EmbarkText
                     Embark.Run()
                 Case QuitText

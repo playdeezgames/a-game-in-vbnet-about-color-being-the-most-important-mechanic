@@ -40,7 +40,12 @@
     Public Sub Move(direction As String) Implements ICharacter.Move
         If Location.HasRoute(direction) Then
             Location = Location.Route(direction).ToLocation
+            World.Verbs(VerbTypes.Movement).Execute(character:=Me)
         End If
+    End Sub
+
+    Public Sub SetStatistic(statisticType As String, statisticValue As Integer) Implements ICharacter.SetStatistic
+        CharacterData.Statistics(statisticType) = statisticValue
     End Sub
 
     Public Function GetStatistic(statisticType As String) As Integer Implements ICharacter.GetStatistic

@@ -6,4 +6,5 @@
     ReadOnly Property Name As String
     ReadOnly Property CanInteract As Boolean
     Function GetStatistic(statisticType As String) As Integer
+    Sub SetStatistic(statisticType As String, statisticValue As Integer)
 End Interface

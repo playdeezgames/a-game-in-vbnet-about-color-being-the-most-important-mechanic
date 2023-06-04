@@ -11,7 +11,10 @@ Friend Module CharacterInitializer
             End While
         Next
     End Sub
-    Private Sub SpawnCharacter(world As IWorld, characterType As String, descriptor As CharacterTypeDescriptor)
+    Private Sub SpawnCharacter(
+            world As IWorld,
+            characterType As String,
+            descriptor As CharacterTypeDescriptor)
         world.CreateCharacter(
             characterType,
             descriptor.Name,

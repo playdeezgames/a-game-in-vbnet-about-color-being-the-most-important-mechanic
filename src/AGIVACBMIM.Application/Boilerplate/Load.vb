@@ -14,6 +14,6 @@
         End If
         AnsiConsole.MarkupLine("[lime]Load successful.[/]")
         OkPrompt()
-        InPlay.Run()
+        MainLoop.Run()
     End Sub
 End Module

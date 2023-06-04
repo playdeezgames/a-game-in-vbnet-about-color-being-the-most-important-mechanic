@@ -1,6 +1,6 @@
 ﻿Friend Module Embark
     Friend Sub Run()
         Context.Start()
-        InPlay.Run()
+        MainLoop.Run()
     End Sub
 End Module
