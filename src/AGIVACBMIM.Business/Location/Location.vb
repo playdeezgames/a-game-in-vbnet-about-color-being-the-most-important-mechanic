@@ -49,6 +49,12 @@
         End Get
     End Property
 
+    Public ReadOnly Property LocationType As String Implements ILocation.LocationType
+        Get
+            Return LocationData.LocationType
+        End Get
+    End Property
+
     Public Sub AddCharacter(character As ICharacter) Implements ILocation.AddCharacter
         LocationData.CharacterIds.Add(character.Id)
     End Sub

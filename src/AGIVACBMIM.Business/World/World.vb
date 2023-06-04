@@ -45,9 +45,11 @@
         File.WriteAllText(filename, JsonSerializer.Serialize(WorldData))
     End Sub
 
-    Public Function CreateLocation(name As String) As ILocation Implements IWorld.CreateLocation
+    Public Function CreateLocation(locationType As String, name As String) As ILocation Implements IWorld.CreateLocation
         Dim locationId = WorldData.Locations.Count
-        WorldData.Locations.Add(New LocationData With {.Name = name})
+        WorldData.Locations.Add(New LocationData With {
+                                .LocationType = locationType,
+                                .Name = name})
         Return New Location(WorldData, locationId)
     End Function
 

@@ -1,5 +1,7 @@
 Public Interface IWorld
-    Function CreateLocation(name As String) As ILocation
+    Function CreateLocation(
+                           locationType As String,
+                           name As String) As ILocation
     Function CreateCharacter(
                             characterType As String,
                             name As String,
