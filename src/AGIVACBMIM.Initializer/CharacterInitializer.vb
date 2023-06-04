@@ -18,7 +18,7 @@ Friend Module CharacterInitializer
         world.CreateCharacter(
             characterType,
             descriptor.Name,
-            RNG.FromEnumerable(world.Locations),
+            RNG.FromEnumerable(world.Locations.Where(Function(x) descriptor.CanSpawn(x))),
             statistics:=descriptor.Statistics)
     End Sub
 End Module

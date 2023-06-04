@@ -11,14 +11,30 @@
                     {
                         {StatisticTypes.MaximumEnergy, 100},
                         {StatisticTypes.Energy, 100}
-                    })},
-            {Color, New CharacterTypeDescriptor("Color, the most important mechanic", spawnCount:=1)},
-            {Hue, New CharacterTypeDescriptor("Hue, the mechanic", spawnCount:=1)},
-            {Shade, New CharacterTypeDescriptor("Shade, the mechanic", spawnCount:=1)},
-            {Tint, New CharacterTypeDescriptor("Tint, the mechanic", spawnCount:=1)},
-            {Tone, New CharacterTypeDescriptor("Tone, the mechanic", spawnCount:=1)},
-            {Pigment, New CharacterTypeDescriptor("Pigment, the mechanic", spawnCount:=1)}
+                    },
+                    canSpawn:=AddressOf OverworldOnly)},
+            {Color, New CharacterTypeDescriptor("Color, the most important mechanic", spawnCount:=1,
+                    canSpawn:=AddressOf TownOnly)},
+            {Hue, New CharacterTypeDescriptor("Hue, the mechanic", spawnCount:=1,
+                    canSpawn:=AddressOf TownOnly)},
+            {Shade, New CharacterTypeDescriptor("Shade, the mechanic", spawnCount:=1,
+                    canSpawn:=AddressOf TownOnly)},
+            {Tint, New CharacterTypeDescriptor("Tint, the mechanic", spawnCount:=1,
+                    canSpawn:=AddressOf TownOnly)},
+            {Tone, New CharacterTypeDescriptor("Tone, the mechanic", spawnCount:=1,
+                    canSpawn:=AddressOf TownOnly)},
+            {Pigment, New CharacterTypeDescriptor("Pigment, the mechanic", spawnCount:=1,
+                    canSpawn:=AddressOf TownOnly)}
         }
+
+    Private Function TownOnly(location As ILocation) As Boolean
+        Return location.LocationType = LocationTypes.Town
+    End Function
+
+    Private Function OverworldOnly(location As ILocation) As Boolean
+        Return location.LocationType = LocationTypes.Overworld
+    End Function
+
     Friend ReadOnly Property All As IEnumerable(Of String)
         Get
             Return Descriptors.Keys
