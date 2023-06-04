@@ -10,7 +10,7 @@
                     statistics:=New Dictionary(Of String, Integer) From
                     {
                         {StatisticTypes.MaximumEnergy, 100},
-                        {StatisticTypes.Energy, 10}
+                        {StatisticTypes.Energy, 100}
                     })},
             {Color, New CharacterTypeDescriptor("Color, the most important mechanic", spawnCount:=1)},
             {Hue, New CharacterTypeDescriptor("Hue, the mechanic", spawnCount:=1)},
