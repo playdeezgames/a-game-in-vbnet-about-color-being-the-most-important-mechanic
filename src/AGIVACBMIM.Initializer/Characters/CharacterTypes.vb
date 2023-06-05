@@ -12,7 +12,8 @@
                         {StatisticTypes.MaximumEnergy, 100},
                         {StatisticTypes.Energy, 100}
                     },
-                    canSpawn:=AddressOf OverworldOnly)},
+                    canSpawn:=AddressOf OverworldOnly,
+                    provisioner:=AddressOf N00bProvisioning)},
             {Color, New CharacterTypeDescriptor("Color, the most important mechanic", spawnCount:=1,
                     canSpawn:=AddressOf TownOnly)},
             {Hue, New CharacterTypeDescriptor("Hue, the mechanic", spawnCount:=1,

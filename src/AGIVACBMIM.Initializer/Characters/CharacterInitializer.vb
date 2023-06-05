@@ -15,10 +15,11 @@ Friend Module CharacterInitializer
             world As IWorld,
             characterType As String,
             descriptor As CharacterTypeDescriptor)
-        world.CreateCharacter(
+        Dim character = world.CreateCharacter(
             characterType,
             descriptor.Name,
             RNG.FromEnumerable(world.Locations.Where(Function(x) descriptor.CanSpawn(x))),
             statistics:=descriptor.Statistics)
+        descriptor.Provisioner.Invoke(character)
     End Sub
 End Module

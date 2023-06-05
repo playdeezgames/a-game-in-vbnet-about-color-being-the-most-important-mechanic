@@ -7,4 +7,6 @@
     ReadOnly Property CanInteract As Boolean
     Function GetStatistic(statisticType As String) As Integer
     Sub SetStatistic(statisticType As String, statisticValue As Integer)
+    ReadOnly Property World As IWorld
+    Sub AddItem(item As IItem)
 End Interface

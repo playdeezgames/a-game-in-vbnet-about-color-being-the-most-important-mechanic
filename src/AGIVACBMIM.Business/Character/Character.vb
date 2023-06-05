@@ -37,15 +37,25 @@
         End Get
     End Property
 
+    Public ReadOnly Property World As IWorld Implements ICharacter.World
+        Get
+            Return New World(WorldData)
+        End Get
+    End Property
+
     Public Sub Move(direction As String) Implements ICharacter.Move
         If Location.HasRoute(direction) Then
             Location = Location.Route(direction).ToLocation
-            World.Verbs(VerbTypes.Movement).Execute(character:=Me)
+            Business.World.Verbs(VerbTypes.Movement).Execute(character:=Me)
         End If
     End Sub
 
     Public Sub SetStatistic(statisticType As String, statisticValue As Integer) Implements ICharacter.SetStatistic
         CharacterData.Statistics(statisticType) = statisticValue
+    End Sub
+
+    Public Sub AddItem(item As IItem) Implements ICharacter.AddItem
+        CharacterData.ItemIds.Add(item.Id)
     End Sub
 
     Public Function GetStatistic(statisticType As String) As Integer Implements ICharacter.GetStatistic

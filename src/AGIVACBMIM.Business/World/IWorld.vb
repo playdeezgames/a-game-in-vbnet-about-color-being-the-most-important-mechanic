@@ -11,4 +11,5 @@ Public Interface IWorld
     ReadOnly Property Locations As IEnumerable(Of ILocation)
     ReadOnly Property Characters As IEnumerable(Of ICharacter)
     Sub Save(filename As String)
+    Function CreateItem(itemType As String, name As String) As IItem
 End Interface

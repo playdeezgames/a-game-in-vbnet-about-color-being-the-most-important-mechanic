@@ -75,5 +75,15 @@
             Return Nothing
         End Try
     End Function
+
+    Public Function CreateItem(itemType As String, name As String) As IItem Implements IWorld.CreateItem
+        Dim itemId = WorldData.Items.Count
+        WorldData.Items.Add(New ItemData With {
+            .ItemType = itemType,
+            .Name = name
+                            })
+        Return New Item(WorldData, itemId)
+    End Function
+
     Public Shared Property Verbs As IReadOnlyDictionary(Of String, IVerb)
 End Class
