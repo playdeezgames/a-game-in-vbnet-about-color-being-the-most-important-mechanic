@@ -35,12 +35,17 @@ Location:
         If otherCharacters.Any(Function(x) x.CanInteract) Then
             prompt.AddChoice(InteractText)
         End If
+        If avatar.HasItems Then
+            prompt.AddChoice(InventoryText)
+        End If
         prompt.AddChoice(MainMenuText)
         Select Case AnsiConsole.Prompt(prompt)
             Case MoveText
                 Move.Run()
             Case MainMenuText
                 Return False
+            Case InventoryText
+                Inventory.Run()
             Case Else
                 Throw New NotImplementedException
         End Select

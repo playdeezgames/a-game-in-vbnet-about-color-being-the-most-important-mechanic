@@ -9,4 +9,10 @@
             Return ItemId
         End Get
     End Property
+
+    Public ReadOnly Property Name As String Implements IItem.Name
+        Get
+            Return ItemData.Name
+        End Get
+    End Property
 End Class

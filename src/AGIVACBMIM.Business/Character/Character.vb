@@ -43,6 +43,24 @@
         End Get
     End Property
 
+    Public ReadOnly Property HasItems As Boolean Implements ICharacter.HasItems
+        Get
+            Return CharacterData.ItemIds.Any
+        End Get
+    End Property
+
+    Public ReadOnly Property ItemStacks As IReadOnlyDictionary(Of String, IEnumerable(Of IItem)) Implements ICharacter.ItemStacks
+        Get
+            Return Items.GroupBy(Function(x) x.Name).ToDictionary(Function(x) x.Key, Function(x) x.AsEnumerable)
+        End Get
+    End Property
+
+    Public ReadOnly Property Items As IEnumerable(Of IItem) Implements ICharacter.Items
+        Get
+            Return CharacterData.ItemIds.Select(Function(x) New Item(WorldData, x))
+        End Get
+    End Property
+
     Public Sub Move(direction As String) Implements ICharacter.Move
         If Location.HasRoute(direction) Then
             Location = Location.Route(direction).ToLocation
