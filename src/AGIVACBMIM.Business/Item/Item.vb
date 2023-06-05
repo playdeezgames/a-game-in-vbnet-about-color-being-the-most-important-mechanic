@@ -15,4 +15,10 @@
             Return ItemData.Name
         End Get
     End Property
+
+    Public ReadOnly Property VerbNames As IEnumerable(Of String) Implements IItem.VerbNames
+        Get
+            Return ItemData.Verbs.Keys
+        End Get
+    End Property
 End Class

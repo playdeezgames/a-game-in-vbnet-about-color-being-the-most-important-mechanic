@@ -36,10 +36,10 @@
                 RunItem(table(answer))
         End Select
     End Sub
-
     Private Sub RunItem(item As IItem)
         Dim prompt As New SelectionPrompt(Of String) With {.Title = $"[olive]{item.Name}[/]"}
         prompt.AddChoice(NeverMindText)
+        prompt.AddChoices(item.VerbNames)
         Select Case AnsiConsole.Prompt(prompt)
             Case NeverMindText
                 Return

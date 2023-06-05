@@ -4,7 +4,21 @@
         {
             {
                 Snax,
-                New ItemTypeDescriptor("Snax")
+                New ItemTypeDescriptor(
+                    "Snax",
+                    New Dictionary(Of String, IEnumerable(Of IReadOnlyDictionary(Of String, Integer))) From
+                    {
+                        {
+                            VerbTypes.ChangeEnergy,
+                            New List(Of IReadOnlyDictionary(Of String, Integer)) From
+                            {
+                                New Dictionary(Of String, Integer) From
+                                {
+                                    {StatisticTypes.Energy, 1}
+                                }
+                            }
+                        }
+                    })
             }
         }
     Friend Const Snax = "Snax"
