@@ -80,10 +80,8 @@
         Dim itemId = WorldData.Items.Count
         WorldData.Items.Add(New ItemData With {
             .ItemType = itemType,
-            .Name = name
-                            })
+            .Name = name})
         Return New Item(WorldData, itemId)
     End Function
-
-    Public Shared Property Verbs As IReadOnlyDictionary(Of String, IVerb)
+    Public Shared Property VerbExecutors As IReadOnlyDictionary(Of String, Action(Of ICharacter, IReadOnlyDictionary(Of String, Integer)))
 End Class

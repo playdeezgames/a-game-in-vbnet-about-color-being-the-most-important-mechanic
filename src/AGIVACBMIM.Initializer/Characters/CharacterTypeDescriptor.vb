@@ -4,6 +4,7 @@
     Friend ReadOnly Property Provisioner As Action(Of ICharacter)
     Friend Sub New(
                   name As String,
+                  verbs As IReadOnlyDictionary(Of String, VerbDescriptor),
                   Optional statistics As IReadOnlyDictionary(Of String, Integer) = Nothing,
                   Optional spawnCount As Integer = 0,
                   Optional canSpawn As Func(Of ILocation, Boolean) = Nothing,
@@ -13,7 +14,9 @@
         Me.Statistics = If(statistics, New Dictionary(Of String, Integer))
         Me.CanSpawn = canSpawn
         Me.Provisioner = If(provisioner, AddressOf NoProvisioning)
+        Me.Verbs = verbs
     End Sub
     Friend ReadOnly Property Statistics As IReadOnlyDictionary(Of String, Integer)
     Friend ReadOnly Property CanSpawn As Func(Of ILocation, Boolean)
+    Friend ReadOnly Property Verbs As IReadOnlyDictionary(Of String, VerbDescriptor)
 End Class

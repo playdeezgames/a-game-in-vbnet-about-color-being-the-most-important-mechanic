@@ -6,6 +6,10 @@
                 N00b,
                 New CharacterTypeDescriptor(
                     "N00b",
+                    New Dictionary(Of String, VerbDescriptor) From
+                    {
+                        {VerbTypes.Movement, New VerbDescriptor("Move", New Dictionary(Of String, Integer))}
+                    },
                     spawnCount:=1,
                     statistics:=New Dictionary(Of String, Integer) From
                     {
@@ -14,18 +18,54 @@
                     },
                     canSpawn:=AddressOf OverworldOnly,
                     provisioner:=AddressOf N00bProvisioning)},
-            {Color, New CharacterTypeDescriptor("Color, the most important mechanic", spawnCount:=1,
-                    canSpawn:=AddressOf TownOnly)},
-            {Hue, New CharacterTypeDescriptor("Hue, the mechanic", spawnCount:=1,
-                    canSpawn:=AddressOf TownOnly)},
-            {Shade, New CharacterTypeDescriptor("Shade, the mechanic", spawnCount:=1,
-                    canSpawn:=AddressOf TownOnly)},
-            {Tint, New CharacterTypeDescriptor("Tint, the mechanic", spawnCount:=1,
-                    canSpawn:=AddressOf TownOnly)},
-            {Tone, New CharacterTypeDescriptor("Tone, the mechanic", spawnCount:=1,
-                    canSpawn:=AddressOf TownOnly)},
-            {Pigment, New CharacterTypeDescriptor("Pigment, the mechanic", spawnCount:=1,
-                    canSpawn:=AddressOf TownOnly)}
+            {
+                Color,
+                New CharacterTypeDescriptor(
+                    "Color, the most important mechanic",
+                    New Dictionary(Of String, VerbDescriptor),
+                    spawnCount:=1,
+                    canSpawn:=AddressOf TownOnly)
+            },
+            {
+                Hue,
+                New CharacterTypeDescriptor(
+                    "Hue, the mechanic",
+                    New Dictionary(Of String, VerbDescriptor),
+                    spawnCount:=1,
+                    canSpawn:=AddressOf TownOnly)
+            },
+            {
+                Shade,
+                New CharacterTypeDescriptor(
+                    "Shade, the mechanic",
+                    New Dictionary(Of String, VerbDescriptor),
+                    spawnCount:=1,
+                    canSpawn:=AddressOf TownOnly)
+            },
+            {
+                Tint,
+                New CharacterTypeDescriptor(
+                    "Tint, the mechanic",
+                    New Dictionary(Of String, VerbDescriptor),
+                    spawnCount:=1,
+                    canSpawn:=AddressOf TownOnly)
+            },
+            {
+                Tone,
+                New CharacterTypeDescriptor(
+                    "Tone, the mechanic",
+                    New Dictionary(Of String, VerbDescriptor),
+                    spawnCount:=1,
+                    canSpawn:=AddressOf TownOnly)
+            },
+            {
+                Pigment,
+                New CharacterTypeDescriptor(
+                    "Pigment, the mechanic",
+                    New Dictionary(Of String, VerbDescriptor),
+                    spawnCount:=1,
+                    canSpawn:=AddressOf TownOnly)
+            }
         }
 
     Private Function TownOnly(location As ILocation) As Boolean

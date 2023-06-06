@@ -39,12 +39,16 @@
     Private Sub RunItem(item As IItem)
         Dim prompt As New SelectionPrompt(Of String) With {.Title = $"[olive]{item.Name}[/]"}
         prompt.AddChoice(NeverMindText)
+        For Each verbName In item.VerbNames
+            prompt.AddChoice(verbName)
+        Next
         prompt.AddChoices(item.VerbNames)
+        Dim answer = AnsiConsole.Prompt(prompt)
         Select Case AnsiConsole.Prompt(prompt)
             Case NeverMindText
                 Return
             Case Else
-                Throw New NotImplementedException
+                item.Verb(answer).Execute(World.Avatar)
         End Select
     End Sub
 End Module

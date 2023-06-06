@@ -4,4 +4,5 @@
     Public Property Name As String
     Public Property Statistics As New Dictionary(Of String, Integer)
     Public Property ItemIds As New HashSet(Of Integer)
+    Public Property Verbs As New Dictionary(Of String, VerbData)
 End Class

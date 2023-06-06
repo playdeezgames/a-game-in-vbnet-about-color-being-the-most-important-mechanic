@@ -6,17 +6,14 @@
                 Snax,
                 New ItemTypeDescriptor(
                     "Snax",
-                    New Dictionary(Of String, IEnumerable(Of IReadOnlyDictionary(Of String, Integer))) From
+                    New Dictionary(Of String, VerbDescriptor) From
                     {
                         {
                             VerbTypes.ChangeEnergy,
-                            New List(Of IReadOnlyDictionary(Of String, Integer)) From
+                            New VerbDescriptor("Eat", New Dictionary(Of String, Integer) From
                             {
-                                New Dictionary(Of String, Integer) From
-                                {
-                                    {StatisticTypes.Energy, 1}
-                                }
-                            }
+                                {StatisticTypes.Energy, 1}
+                            })
                         }
                     })
             }
