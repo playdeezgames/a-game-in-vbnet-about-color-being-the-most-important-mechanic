@@ -19,6 +19,7 @@ Friend Module CharacterInitializer
             characterType,
             descriptor.Name,
             RNG.FromEnumerable(world.Locations.Where(Function(x) descriptor.CanSpawn(x))),
+            descriptor.IsEnemy,
             statistics:=descriptor.Statistics)
         For Each verb In descriptor.Verbs
             character.AddVerb(verb.Key, verb.Value.Name, verb.Value.Parameters)

@@ -8,13 +8,19 @@
                     "N00b",
                     New Dictionary(Of String, VerbDescriptor) From
                     {
-                        {VerbTypes.Movement, New VerbDescriptor("Move", New Dictionary(Of String, Integer))}
+                        {VerbTypes.Movement, New VerbDescriptor("Move", New Dictionary(Of String, Integer))},
+                        {VerbTypes.Fight, New VerbDescriptor("Fight", New Dictionary(Of String, Integer))}
                     },
                     spawnCount:=1,
+                    isEnemy:=False,
                     statistics:=New Dictionary(Of String, Integer) From
                     {
                         {StatisticTypes.MaximumEnergy, 100},
-                        {StatisticTypes.Energy, 100}
+                        {StatisticTypes.Energy, 100},
+                        {StatisticTypes.Health, 100},
+                        {StatisticTypes.MaximumHealth, 100},
+                        {StatisticTypes.Attack, 10},
+                        {StatisticTypes.Defend, 10}
                     },
                     canSpawn:=AddressOf OverworldOnly,
                     provisioner:=AddressOf N00bProvisioning)},
@@ -25,7 +31,15 @@
                     New Dictionary(Of String, VerbDescriptor),
                     spawnCount:=150,
                     canSpawn:=AddressOf OverworldOnly,
-                    provisioner:=AddressOf SlimeProvisioning)
+                    provisioner:=AddressOf SlimeProvisioning,
+                    statistics:=New Dictionary(Of String, Integer) From
+                    {
+                        {StatisticTypes.Energy, 1},
+                        {StatisticTypes.Health, 5},
+                        {StatisticTypes.MaximumHealth, 5},
+                        {StatisticTypes.Attack, 5},
+                        {StatisticTypes.Defend, 5}
+                    })
             },
             {
                 Color,
@@ -33,6 +47,7 @@
                     "Color, the most important mechanic",
                     New Dictionary(Of String, VerbDescriptor),
                     spawnCount:=1,
+                    isEnemy:=False,
                     canSpawn:=AddressOf TownOnly)
             },
             {
@@ -41,6 +56,7 @@
                     "Hue, the mechanic",
                     New Dictionary(Of String, VerbDescriptor),
                     spawnCount:=1,
+                    isEnemy:=False,
                     canSpawn:=AddressOf TownOnly)
             },
             {
@@ -49,6 +65,7 @@
                     "Shade, the mechanic",
                     New Dictionary(Of String, VerbDescriptor),
                     spawnCount:=1,
+                    isEnemy:=False,
                     canSpawn:=AddressOf TownOnly)
             },
             {
@@ -57,6 +74,7 @@
                     "Tint, the mechanic",
                     New Dictionary(Of String, VerbDescriptor),
                     spawnCount:=1,
+                    isEnemy:=False,
                     canSpawn:=AddressOf TownOnly)
             },
             {
@@ -65,6 +83,7 @@
                     "Tone, the mechanic",
                     New Dictionary(Of String, VerbDescriptor),
                     spawnCount:=1,
+                    isEnemy:=False,
                     canSpawn:=AddressOf TownOnly)
             },
             {
@@ -73,6 +92,7 @@
                     "Pigment, the mechanic",
                     New Dictionary(Of String, VerbDescriptor),
                     spawnCount:=1,
+                    isEnemy:=False,
                     canSpawn:=AddressOf TownOnly)
             }
         }

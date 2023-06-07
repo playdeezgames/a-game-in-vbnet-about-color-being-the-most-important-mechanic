@@ -55,6 +55,12 @@
         End Get
     End Property
 
+    Public ReadOnly Property Enemies(character As ICharacter) As IEnumerable(Of ICharacter) Implements ILocation.Enemies
+        Get
+            Return OtherCharacters(character).Where(Function(x) x.IsEnemy <> character.IsEnemy)
+        End Get
+    End Property
+
     Public Sub AddCharacter(character As ICharacter) Implements ILocation.AddCharacter
         LocationData.CharacterIds.Add(character.Id)
     End Sub
@@ -71,5 +77,9 @@
 
     Public Function HasRoute(direction As String) As Boolean Implements ILocation.HasRoute
         Return LocationData.Routes.ContainsKey(direction)
+    End Function
+
+    Public Function CanFight(character As ICharacter) As Boolean Implements ILocation.CanFight
+        Return OtherCharacters(character).Any(Function(x) x.IsEnemy <> character.IsEnemy)
     End Function
 End Class

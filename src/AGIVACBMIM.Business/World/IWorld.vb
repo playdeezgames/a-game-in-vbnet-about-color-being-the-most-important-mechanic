@@ -6,6 +6,7 @@ Public Interface IWorld
                             characterType As String,
                             name As String,
                             location As ILocation,
+                            isEnemy As Boolean,
                             Optional statistics As IReadOnlyDictionary(Of String, Integer) = Nothing) As ICharacter
     Property Avatar As ICharacter
     ReadOnly Property Locations As IEnumerable(Of ILocation)

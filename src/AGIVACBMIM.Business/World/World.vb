@@ -57,12 +57,14 @@
                             characterType As String,
                             name As String,
                             location As ILocation,
+                            isEnemy As Boolean,
                             Optional statistics As IReadOnlyDictionary(Of String, Integer) = Nothing) As ICharacter Implements IWorld.CreateCharacter
         Dim characterId = WorldData.Characters.Count
         WorldData.Characters.Add(New CharacterData With {
                                  .CharacterType = characterType,
                                  .LocationId = location.Id,
                                  .Name = name,
+                                 .IsEnemy = isEnemy,
                                  .Statistics = statistics.ToDictionary(Function(x) x.Key, Function(x) x.Value)})
         Return New Character(WorldData, characterId) With {
             .Location = location
@@ -95,7 +97,7 @@
         WorldData.Messages.Clear()
     End Sub
 
-    Public Shared Property VerbExecutors As IReadOnlyDictionary(Of String, Action(Of ICharacter, IItem, IReadOnlyDictionary(Of String, Integer)))
+    Public Shared Property VerbExecutors As IReadOnlyDictionary(Of String, Action(Of ICharacter, IItem, ICharacter, IReadOnlyDictionary(Of String, Integer)))
 
     Public ReadOnly Property HasMessages As Boolean Implements IWorld.HasMessages
         Get

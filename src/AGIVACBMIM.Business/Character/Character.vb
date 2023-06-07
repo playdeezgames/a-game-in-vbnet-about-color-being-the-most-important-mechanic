@@ -60,6 +60,13 @@
             Return New Verb(verbData.Name, verbData.Parameters, Business.World.VerbExecutors(verbName))
         End Get
     End Property
+
+    Public ReadOnly Property IsEnemy As Boolean Implements ICharacter.IsEnemy
+        Get
+            Return CharacterData.IsEnemy
+        End Get
+    End Property
+
     Public Sub Move(direction As String) Implements ICharacter.Move
         If Location.HasRoute(direction) Then
             Location = Location.Route(direction).ToLocation
