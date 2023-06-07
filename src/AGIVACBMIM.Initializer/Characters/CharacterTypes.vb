@@ -19,6 +19,15 @@
                     canSpawn:=AddressOf OverworldOnly,
                     provisioner:=AddressOf N00bProvisioning)},
             {
+                Slime,
+                New CharacterTypeDescriptor(
+                    "Slime",
+                    New Dictionary(Of String, VerbDescriptor),
+                    spawnCount:=150,
+                    canSpawn:=AddressOf OverworldOnly,
+                    provisioner:=AddressOf SlimeProvisioning)
+            },
+            {
                 Color,
                 New CharacterTypeDescriptor(
                     "Color, the most important mechanic",
@@ -88,4 +97,5 @@
     Friend Const Tint = "Tint"
     Friend Const Tone = "Tone"
     Friend Const Pigment = "Pigment"
+    Friend Const Slime = "Slime"
 End Module

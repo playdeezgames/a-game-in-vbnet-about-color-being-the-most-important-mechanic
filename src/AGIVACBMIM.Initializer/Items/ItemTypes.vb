@@ -16,7 +16,14 @@
                             })
                         }
                     })
+            },
+            {
+                Goo,
+                New ItemTypeDescriptor(
+                    "Goo",
+                    New Dictionary(Of String, VerbDescriptor))
             }
         }
+    Friend Const Goo = "Goo"
     Friend Const Snax = "Snax"
 End Module

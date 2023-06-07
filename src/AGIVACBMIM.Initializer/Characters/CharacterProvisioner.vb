@@ -8,6 +8,11 @@
         SpawnItemInCharacterInventory(character, itemType, itemDescriptor)
         SpawnItemInCharacterInventory(character, itemType, itemDescriptor)
     End Sub
+    Friend Sub SlimeProvisioning(character As ICharacter)
+        Dim itemType = ItemTypes.Goo
+        Dim itemDescriptor = ItemTypes.Descriptors(itemType)
+        SpawnItemInCharacterInventory(character, itemType, itemDescriptor)
+    End Sub
 
     Private Sub SpawnItemInCharacterInventory(character As ICharacter, itemType As String, itemDescriptor As ItemTypeDescriptor)
         Dim item = character.World.CreateItem(itemType, itemDescriptor.Name)

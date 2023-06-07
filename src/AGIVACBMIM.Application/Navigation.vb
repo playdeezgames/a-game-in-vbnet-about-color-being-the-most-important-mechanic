@@ -28,8 +28,8 @@ Location:
         If otherCharacters.Any Then
             AnsiConsole.WriteLine()
             AnsiConsole.MarkupLine("Other Characters:")
-            For Each character In otherCharacters
-                AnsiConsole.MarkupLine($"    {character.Name}")
+            For Each group In otherCharacters.GroupBy(Function(x) x.Name)
+                AnsiConsole.MarkupLine($"    {group.Key}(x{group.Count})")
             Next
         End If
 
