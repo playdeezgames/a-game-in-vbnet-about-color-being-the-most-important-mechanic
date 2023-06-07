@@ -11,10 +11,10 @@
             Case NeverMindText
                 Return
             Case Else
-                RunItemStack(table(answer))
+                RunItemStack(avatar, table(answer))
         End Select
     End Sub
-    Private Sub RunItemStack(items As IEnumerable(Of IItem))
+    Private Sub RunItemStack(avatar As ICharacter, items As IEnumerable(Of IItem))
         If items.Count = 1 Then
             RunItem(items.Single)
             Return

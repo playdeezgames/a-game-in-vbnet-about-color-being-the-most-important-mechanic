@@ -61,12 +61,32 @@
         End Get
     End Property
 
+    Public ReadOnly Property HasItems As Boolean Implements ILocation.HasItems
+        Get
+            Return LocationData.ItemIds.Any
+        End Get
+    End Property
+
+    Public ReadOnly Property Items As IEnumerable(Of IItem) Implements ILocation.Items
+        Get
+            Return LocationData.ItemIds.Select(Function(x) New Item(WorldData, x))
+        End Get
+    End Property
+
     Public Sub AddCharacter(character As ICharacter) Implements ILocation.AddCharacter
         LocationData.CharacterIds.Add(character.Id)
     End Sub
 
     Public Sub RemoveCharacter(character As ICharacter) Implements ILocation.RemoveCharacter
         LocationData.CharacterIds.Remove(character.Id)
+    End Sub
+
+    Public Sub AddItem(item As IItem) Implements ILocation.AddItem
+        LocationData.ItemIds.Add(item.Id)
+    End Sub
+
+    Public Sub RemoveItem(item As IItem) Implements ILocation.RemoveItem
+        LocationData.ItemIds.Remove(item.Id)
     End Sub
 
     Public Function CreateRoute(direction As String, toLocation As ILocation) As IRoute Implements ILocation.CreateRoute

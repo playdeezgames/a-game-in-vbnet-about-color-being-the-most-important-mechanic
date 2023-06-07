@@ -34,6 +34,15 @@ Location:
             Next
         End If
 
+        If location.HasItems Then
+            Dim items = location.Items.GroupBy(Function(x) x.Name)
+            AnsiConsole.WriteLine()
+            AnsiConsole.MarkupLine($"On the Ground:")
+            For Each item In items
+                AnsiConsole.MarkupLine($"    {item.Key}(x{item.Count})")
+            Next
+        End If
+
         Dim otherCharacters = location.OtherCharacters(avatar)
         If otherCharacters.Any Then
             AnsiConsole.WriteLine()
@@ -47,8 +56,13 @@ Location:
         Dim prompt As New SelectionPrompt(Of String) With {.Title = NowWhatTitle}
         If location.CanFight(avatar) Then
             prompt.AddChoice(FightText)
-        ElseIf location.HasRoutes Then
-            prompt.AddChoice(MoveText)
+        Else
+            If location.HasItems Then
+                prompt.AddChoice(TakeText)
+            End If
+            If location.HasRoutes Then
+                prompt.AddChoice(MoveText)
+            End If
         End If
         If otherCharacters.Any(Function(x) x.CanInteract) Then
             prompt.AddChoice(InteractText)
@@ -66,6 +80,8 @@ Location:
                 Inventory.Run()
             Case FightText
                 Fight.Run()
+            Case TakeText
+                Take.Run()
             Case Else
                 Throw New NotImplementedException
         End Select

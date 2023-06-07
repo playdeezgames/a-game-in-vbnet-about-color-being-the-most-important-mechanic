@@ -28,6 +28,11 @@ Public Module CharacterExtensions
     End Sub
     <Extension>
     Public Sub Kill(character As ICharacter)
+        Dim location = character.Location
+        For Each item In character.Items
+            character.RemoveItem(item)
+            location.AddItem(item)
+        Next
         character.Location.RemoveCharacter(character)
         'TODO: drop items
     End Sub

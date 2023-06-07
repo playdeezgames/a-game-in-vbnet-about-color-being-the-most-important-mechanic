@@ -7,6 +7,7 @@
     Friend Const EmbarkText = "Embark!"
     Friend Const FightText = "Fight!"
     Friend Const GameTitle = "A Game about Color Being the Most Important Mechanic"
+    Friend Const HowManyTitle = "[olive]How Many?[/]"
     Friend Const InteractText = "Interact..."
     Friend Const InventoryText = "Inventory"
     Friend Const LoadText = "Load..."
@@ -20,5 +21,7 @@
     Friend Const OkText = "Ok"
     Friend Const QuitText = "Quit"
     Friend Const SaveText = "Save..."
+    Friend Const TakeText = "Take..."
+    Friend Const TakeTitle = "[olive]Take From The Ground:[/]"
     Friend Const YesText = "Yes"
 End Module
