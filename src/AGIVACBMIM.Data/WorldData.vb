@@ -3,4 +3,5 @@ Public Class WorldData
     Public Property Characters As New List(Of CharacterData)
     Public Property Items As New List(Of ItemData)
     Public Property AvatarCharacterId As Integer?
+    Public Property Messages As New List(Of String)
 End Class

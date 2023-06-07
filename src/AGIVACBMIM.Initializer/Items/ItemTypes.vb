@@ -12,7 +12,7 @@
                             VerbTypes.ChangeEnergy,
                             New VerbDescriptor("Eat", New Dictionary(Of String, Integer) From
                             {
-                                {StatisticTypes.Energy, 1}
+                                {StatisticTypes.Energy, 10}
                             })
                         }
                     })

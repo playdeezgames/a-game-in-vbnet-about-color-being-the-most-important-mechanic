@@ -90,5 +90,22 @@
             }
         Return New Item(WorldData, itemId)
     End Function
+
+    Public Sub ClearMessages() Implements IWorld.ClearMessages
+        WorldData.Messages.Clear()
+    End Sub
+
     Public Shared Property VerbExecutors As IReadOnlyDictionary(Of String, Action(Of ICharacter, IItem, IReadOnlyDictionary(Of String, Integer)))
+
+    Public ReadOnly Property HasMessages As Boolean Implements IWorld.HasMessages
+        Get
+            Return WorldData.Messages.Any
+        End Get
+    End Property
+
+    Public ReadOnly Property Messages As IEnumerable(Of String) Implements IWorld.Messages
+        Get
+            Return WorldData.Messages
+        End Get
+    End Property
 End Class

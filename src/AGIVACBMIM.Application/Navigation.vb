@@ -2,6 +2,12 @@
     Friend Function Run() As Boolean
         AnsiConsole.Clear()
         Dim avatar = World.Avatar
+        If World.HasMessages Then
+            For Each message In World.Messages
+                AnsiConsole.MarkupLine(message)
+            Next
+            World.ClearMessages()
+        End If
         AnsiConsole.MarkupLine($"{avatar.Name}:")
         AnsiConsole.MarkupLine($"    Energy: {avatar.Energy}/{avatar.MaximumEnergy}")
         Dim location = avatar.Location

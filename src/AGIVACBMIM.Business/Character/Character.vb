@@ -86,6 +86,12 @@
         CharacterData.ItemIds.Remove(item.Id)
     End Sub
 
+    Public Sub AddMessage(text As String) Implements ICharacter.AddMessage
+        If WorldData.AvatarCharacterId.HasValue AndAlso WorldData.AvatarCharacterId.Value = Id Then
+            WorldData.Messages.Add(text)
+        End If
+    End Sub
+
     Public Function GetStatistic(statisticType As String) As Integer Implements ICharacter.GetStatistic
         Return CharacterData.Statistics(statisticType)
     End Function
