@@ -81,6 +81,11 @@
                 .Parameters = parameters.ToDictionary(Function(x) x.Key, Function(x) x.Value)
             })
     End Sub
+
+    Public Sub RemoveItem(item As IItem) Implements ICharacter.RemoveItem
+        CharacterData.ItemIds.Remove(item.Id)
+    End Sub
+
     Public Function GetStatistic(statisticType As String) As Integer Implements ICharacter.GetStatistic
         Return CharacterData.Statistics(statisticType)
     End Function

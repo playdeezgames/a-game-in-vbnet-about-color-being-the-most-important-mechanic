@@ -38,4 +38,8 @@
                 .Parameters = parameters.ToDictionary(Function(x) x.Key, Function(x) x.Value)
             })
     End Sub
+
+    Public Sub Destroy() Implements IItem.Destroy
+        ItemData.IsDestroyed = True
+    End Sub
 End Class

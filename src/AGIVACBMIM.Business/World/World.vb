@@ -77,11 +77,18 @@
     End Function
 
     Public Function CreateItem(itemType As String, name As String) As IItem Implements IWorld.CreateItem
-        Dim itemId = WorldData.Items.Count
-        WorldData.Items.Add(New ItemData With {
-            .ItemType = itemType,
-            .Name = name})
+        Dim itemId = WorldData.Items.FindIndex(0, Function(x) x.IsDestroyed)
+        If itemId = -1 Then
+            itemId = WorldData.Items.Count
+            WorldData.Items.Add(Nothing)
+        End If
+        WorldData.Items(itemId) =
+            New ItemData With
+            {
+                .ItemType = itemType,
+                .Name = name
+            }
         Return New Item(WorldData, itemId)
     End Function
-    Public Shared Property VerbExecutors As IReadOnlyDictionary(Of String, Action(Of ICharacter, IReadOnlyDictionary(Of String, Integer)))
+    Public Shared Property VerbExecutors As IReadOnlyDictionary(Of String, Action(Of ICharacter, IItem, IReadOnlyDictionary(Of String, Integer)))
 End Class

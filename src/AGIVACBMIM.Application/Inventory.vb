@@ -39,16 +39,18 @@
     Private Sub RunItem(item As IItem)
         Dim prompt As New SelectionPrompt(Of String) With {.Title = $"[olive]{item.Name}[/]"}
         prompt.AddChoice(NeverMindText)
+        Dim table As New Dictionary(Of String, String)
         For Each verbName In item.VerbNames
-            prompt.AddChoice(verbName)
+            Dim verb = item.Verb(verbName)
+            table(verb.Name) = verbName
         Next
-        prompt.AddChoices(item.VerbNames)
+        prompt.AddChoices(table.Keys)
         Dim answer = AnsiConsole.Prompt(prompt)
-        Select Case AnsiConsole.Prompt(prompt)
+        Select Case answer
             Case NeverMindText
                 Return
             Case Else
-                item.Verb(answer).Execute(World.Avatar)
+                item.Verb(table(answer)).Execute(World.Avatar, item)
         End Select
     End Sub
 End Module
