@@ -20,6 +20,7 @@
         AnsiConsole.MarkupLine($"{avatar.Name}:")
         AnsiConsole.MarkupLine($"    Energy: {avatar.Energy}/{avatar.MaximumEnergy}")
         AnsiConsole.MarkupLine($"    Health: {avatar.Health}/{avatar.MaximumHealth}")
+        AnsiConsole.MarkupLine($"    Jools: {avatar.Jools}")
         Dim location = avatar.Location
         AnsiConsole.MarkupLine($"
 Location: 
@@ -56,6 +57,7 @@ Location:
         Dim prompt As New SelectionPrompt(Of String) With {.Title = NowWhatTitle}
         If location.CanFight(avatar) Then
             prompt.AddChoice(FightText)
+            prompt.AddChoice(RunText)
         Else
             If location.HasItems Then
                 prompt.AddChoice(TakeText)
@@ -82,6 +84,8 @@ Location:
                 Fight.Run()
             Case TakeText
                 Take.Run()
+            Case RunText
+                Application.Run.Run()
             Case Else
                 Throw New NotImplementedException
         End Select

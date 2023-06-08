@@ -9,7 +9,8 @@
                     New Dictionary(Of String, VerbDescriptor) From
                     {
                         {VerbTypes.Movement, New VerbDescriptor("Move", New Dictionary(Of String, Integer))},
-                        {VerbTypes.Fight, New VerbDescriptor("Fight", New Dictionary(Of String, Integer))}
+                        {VerbTypes.Fight, New VerbDescriptor("Fight", New Dictionary(Of String, Integer))},
+                        {VerbTypes.Run, New VerbDescriptor("Run", New Dictionary(Of String, Integer))}
                     },
                     spawnCount:=1,
                     isEnemy:=False,
@@ -20,7 +21,8 @@
                         {StatisticTypes.Health, 100},
                         {StatisticTypes.MaximumHealth, 100},
                         {StatisticTypes.Attack, 10},
-                        {StatisticTypes.Defend, 10}
+                        {StatisticTypes.Defend, 10},
+                        {StatisticTypes.Jools, 0}
                     },
                     canSpawn:=AddressOf OverworldOnly,
                     provisioner:=AddressOf N00bProvisioning)},

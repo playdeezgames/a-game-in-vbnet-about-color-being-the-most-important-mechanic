@@ -4,7 +4,8 @@
         {
             {VerbTypes.Movement, AddressOf ExecuteMovement},
             {VerbTypes.ChangeEnergy, AddressOf ExecuteChangeEnergy},
-            {VerbTypes.Fight, AddressOf ExecuteFight}
+            {VerbTypes.Fight, AddressOf ExecuteFight},
+            {VerbTypes.Run, AddressOf ExecuteRun}
         }
 
     Private Sub ExecuteChangeEnergy(character As ICharacter, item As IItem, otherCharacter As ICharacter, parameters As IReadOnlyDictionary(Of String, Integer))

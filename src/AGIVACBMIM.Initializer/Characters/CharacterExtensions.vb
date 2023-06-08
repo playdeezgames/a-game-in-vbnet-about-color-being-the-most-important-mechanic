@@ -48,4 +48,8 @@ Public Module CharacterExtensions
     Public Function RollDefend(character As ICharacter) As Integer
         Return RNG.FromRange(1, character.GetStatistic(StatisticTypes.Defend))
     End Function
+    <Extension>
+    Public Function Jools(character As ICharacter) As Integer
+        Return character.GetStatistic(StatisticTypes.Jools)
+    End Function
 End Module

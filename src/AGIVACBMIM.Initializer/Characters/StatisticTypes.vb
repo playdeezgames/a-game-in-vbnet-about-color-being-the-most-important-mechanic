@@ -5,4 +5,5 @@
     Friend Const Health = "Health"
     Friend Const MaximumEnergy = "MaximumEnergy"
     Friend Const MaximumHealth = "MaximumHealth"
+    Friend Const Jools = "Jools"
 End Module

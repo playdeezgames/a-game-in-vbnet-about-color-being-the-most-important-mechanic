@@ -1,11 +1,23 @@
-﻿Friend Module FightVerb
+﻿Imports SPLORR.Game
+
+Friend Module FightVerb
     Friend Sub ExecuteFight(character As ICharacter, item As IItem, target As ICharacter, dictionary As IReadOnlyDictionary(Of String, Integer))
         ExecuteAttack(character, target)
         For Each enemy In character.Location.Enemies(character)
             ExecuteAttack(enemy, character)
         Next
     End Sub
-
+    Friend Sub ExecuteRun(character As ICharacter, item As IItem, target As ICharacter, dictionary As IReadOnlyDictionary(Of String, Integer))
+        If RNG.FromRange(0, 1) > 0 Then
+            character.AddMessage($"{character.Name} runs!")
+            character.Move(RNG.FromEnumerable(character.Location.Routes.Select(Function(x) x.Direction)))
+            Return
+        End If
+        character.AddMessage($"{character.Name} can't get away!")
+        For Each enemy In character.Location.Enemies(character)
+            ExecuteAttack(enemy, character)
+        Next
+    End Sub
     Private Sub ExecuteAttack(attacker As ICharacter, defender As ICharacter)
         Dim addMessages = Sub(m As String) MessageAdder(attacker, defender, m)
         If attacker.IsDead OrElse defender.IsDead Then

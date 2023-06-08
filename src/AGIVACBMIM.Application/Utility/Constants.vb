@@ -20,6 +20,7 @@
     Friend Const NowWhatTitle = "[olive]Now What?[/]"
     Friend Const OkText = "Ok"
     Friend Const QuitText = "Quit"
+    Friend Const RunText = "Run"
     Friend Const SaveText = "Save..."
     Friend Const TakeText = "Take..."
     Friend Const TakeTitle = "[olive]Take From The Ground:[/]"
