@@ -60,6 +60,52 @@ Public Module CharacterExtensions
     Public Function HasOffers(character As ICharacter) As Boolean
         Return character.CharacterType = CharacterTypes.Color
     End Function
+    Private ReadOnly pricesTable As IReadOnlyDictionary(Of String, IReadOnlyDictionary(Of String, Integer)) =
+        New Dictionary(Of String, IReadOnlyDictionary(Of String, Integer)) From
+        {
+            {
+                CharacterTypes.Hue,
+                New Dictionary(Of String, Integer) From
+                {
+                    {ItemTypes.Snax, 2}
+                }
+            },
+            {
+                CharacterTypes.Tint,
+                New Dictionary(Of String, Integer) From
+                {
+                    {ItemTypes.Snax, 2}
+                }
+            },
+            {
+                CharacterTypes.Tone,
+                New Dictionary(Of String, Integer) From
+                {
+                    {ItemTypes.Snax, 2}
+                }
+            },
+            {
+                CharacterTypes.Shade,
+                New Dictionary(Of String, Integer) From
+                {
+                    {ItemTypes.Snax, 2}
+                }
+            },
+            {
+                CharacterTypes.Pigment,
+                New Dictionary(Of String, Integer) From
+                {
+                    {ItemTypes.Snax, 2}
+                }
+            }
+        }
+    <Extension>
+    Public Function Prices(character As ICharacter) As IReadOnlyDictionary(Of String, Integer)
+        If pricesTable.ContainsKey(character.CharacterType) Then
+            Return pricesTable(character.CharacterType)
+        End If
+        Return New Dictionary(Of String, Integer)
+    End Function
     <Extension>
     Public Function Offers(character As ICharacter) As IReadOnlyDictionary(Of String, Integer)
         If character.CharacterType <> CharacterTypes.Color Then
@@ -79,6 +125,15 @@ Public Module CharacterExtensions
             character.SetJools(character.Jools + itemOfferEach)
         Next
         character.AddMessage($"{character.Name} sold {quantity} {itemType} for {quantity * itemOfferEach} jools.")
+    End Sub
+    <Extension>
+    Sub Buy(character As ICharacter, itemType As String, quantity As Integer, itemPriceEach As Integer)
+        character.AddMessage($"{character.Name} buys {quantity} {itemType} for {quantity * itemPriceEach} jools.")
+        While quantity > 0
+            character.SetJools(character.Jools - itemPriceEach)
+            SpawnItemInCharacterInventory(character, itemType, ItemTypes.Descriptors(itemType))
+            quantity -= 1
+        End While
     End Sub
     <Extension>
     Public Function HasPrices(character As ICharacter) As Boolean

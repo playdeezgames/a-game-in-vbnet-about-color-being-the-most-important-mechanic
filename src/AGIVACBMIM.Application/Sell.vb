@@ -1,28 +1,28 @@
 ﻿Friend Module Sell
     Friend Sub Run()
         Dim avatar = World.Avatar
-        Dim sellers = avatar.Location.OtherCharacters(avatar).Where(Function(x) x.HasOffers)
-        Select Case sellers.Count
+        Dim buyers = avatar.Location.OtherCharacters(avatar).Where(Function(x) x.HasOffers)
+        Select Case buyers.Count
             Case 0
                 Return
             Case 1
-                RunSeller(avatar, sellers.Single)
+                RunBuyer(avatar, buyers.Single)
             Case Else
                 Dim prompt As New SelectionPrompt(Of String) With {.Title = SellToTitle}
                 prompt.AddChoice(NeverMindText)
-                Dim table = sellers.ToDictionary(Function(x) x.Name, Function(x) x)
+                Dim table = buyers.ToDictionary(Function(x) x.Name, Function(x) x)
                 prompt.AddChoices(table.Keys)
                 Dim answer = AnsiConsole.Prompt(prompt)
                 Select Case answer
                     Case NeverMindText
                         Return
                     Case Else
-                        RunSeller(avatar, table(answer))
+                        RunBuyer(avatar, table(answer))
                 End Select
         End Select
     End Sub
-    Private Sub RunSeller(avatar As ICharacter, seller As ICharacter)
-        Dim offers = seller.Offers
+    Private Sub RunBuyer(avatar As ICharacter, buyer As ICharacter)
+        Dim offers = buyer.Offers
         Dim prompt As New SelectionPrompt(Of String) With {.Title = SellWhatTitle}
         prompt.AddChoice(NeverMindText)
         Dim table = offers.ToDictionary(Of String, String)(Function(x) $"{x.Key}({x.Value} jools each)", Function(x) x.Key)

@@ -2,6 +2,8 @@
     Friend Const AbandonGameTitle = "[red]Are you sure you want to abandon game?[/]"
     Friend Const AbandonText = "Abandon Game"
     Friend Const BuyText = "Buy..."
+    Friend Const BuyFromTitle = "[olive]Buy From:[/]"
+    Friend Const BuyWhatTitle = "[olive]Buy What?[/]"
     Friend Const ChooseEnemyTitle = "[olive]Choose Enemy:[/]"
     Friend Const ConfirmQuitTitle = "[red]Are you sure you want to quit?[/]"
     Friend Const ContinueText = "Continue"

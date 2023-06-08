@@ -14,7 +14,7 @@
         SpawnItemInCharacterInventory(character, itemType, itemDescriptor)
     End Sub
 
-    Private Sub SpawnItemInCharacterInventory(character As ICharacter, itemType As String, itemDescriptor As ItemTypeDescriptor)
+    Friend Sub SpawnItemInCharacterInventory(character As ICharacter, itemType As String, itemDescriptor As ItemTypeDescriptor)
         Dim item = character.World.CreateItem(itemType, itemDescriptor.Name)
         For Each verb In itemDescriptor.Verbs
             item.AddVerb(verb.Key, verb.Value.Name, verb.Value.Parameters)

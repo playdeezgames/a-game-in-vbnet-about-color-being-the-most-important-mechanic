@@ -43,10 +43,13 @@
         End Get
     End Property
 
-    Public ReadOnly Property Name As String Implements ILocation.Name
+    Public Property Name As String Implements ILocation.Name
         Get
             Return LocationData.Name
         End Get
+        Set(value As String)
+            LocationData.Name = value
+        End Set
     End Property
 
     Public ReadOnly Property LocationType As String Implements ILocation.LocationType

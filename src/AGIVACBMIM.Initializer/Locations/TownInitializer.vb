@@ -24,7 +24,9 @@ Friend Module TownInitializer
             Next
         Next
         Dim overworldEntrance = world.Locations.Single(Function(x) x.LocationType = LocationTypes.TownEntrance)
+        overworldEntrance.Name = $"{overworldEntrance.Name}(Town Entrance)"
         Dim townExit = locations(RNG.FromRange(0, TownColumns - 1), RNG.FromRange(0, TownRows - 1))
+        townExit.Name = $"{townExit.Name}(Town Exit)"
         overworldEntrance.CreateRoute(Directions.Inward, townExit)
         townExit.CreateRoute(Directions.Outward, overworldEntrance)
     End Sub
