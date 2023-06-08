@@ -52,4 +52,45 @@ Public Module CharacterExtensions
     Public Function Jools(character As ICharacter) As Integer
         Return character.GetStatistic(StatisticTypes.Jools)
     End Function
+    <Extension>
+    Public Sub SetJools(character As ICharacter, jools As Integer)
+        character.SetStatistic(StatisticTypes.Jools, jools)
+    End Sub
+    <Extension>
+    Public Function HasOffers(character As ICharacter) As Boolean
+        Return character.CharacterType = CharacterTypes.Color
+    End Function
+    <Extension>
+    Public Function Offers(character As ICharacter) As IReadOnlyDictionary(Of String, Integer)
+        If character.CharacterType <> CharacterTypes.Color Then
+            Return New Dictionary(Of String, Integer)
+        End If
+        Return New Dictionary(Of String, Integer) From
+            {
+                {ItemTypes.Goo, 1}
+            }
+    End Function
+    <Extension>
+    Sub Sell(character As ICharacter, itemType As String, quantity As Integer, itemOfferEach As Integer)
+        Dim soldItems = character.Items.Where(Function(x) x.ItemType = itemType).Take(quantity)
+        For Each soldItem In soldItems
+            character.RemoveItem(soldItem)
+            soldItem.Destroy()
+            character.SetJools(character.Jools + itemOfferEach)
+        Next
+        character.AddMessage($"{character.Name} sold {quantity} {itemType} for {quantity * itemOfferEach} jools.")
+    End Sub
+    <Extension>
+    Public Function HasPrices(character As ICharacter) As Boolean
+        Select Case character.CharacterType
+            Case CharacterTypes.Shade,
+                 CharacterTypes.Pigment,
+                 CharacterTypes.Hue,
+                 CharacterTypes.Tone,
+                 CharacterTypes.Tint
+                Return True
+            Case Else
+                Return False
+        End Select
+    End Function
 End Module

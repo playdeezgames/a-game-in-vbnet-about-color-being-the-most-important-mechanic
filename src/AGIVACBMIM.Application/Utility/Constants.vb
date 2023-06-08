@@ -1,6 +1,7 @@
 ﻿Friend Module Constants
     Friend Const AbandonGameTitle = "[red]Are you sure you want to abandon game?[/]"
     Friend Const AbandonText = "Abandon Game"
+    Friend Const BuyText = "Buy..."
     Friend Const ChooseEnemyTitle = "[olive]Choose Enemy:[/]"
     Friend Const ConfirmQuitTitle = "[red]Are you sure you want to quit?[/]"
     Friend Const ContinueText = "Continue"
@@ -22,6 +23,9 @@
     Friend Const QuitText = "Quit"
     Friend Const RunText = "Run"
     Friend Const SaveText = "Save..."
+    Friend Const SellText = "Sell..."
+    Friend Const SellToTitle = "[olive]Sell To:[/]"
+    Friend Const SellWhatTitle = "[olive]Sell What?[/]"
     Friend Const TakeText = "Take..."
     Friend Const TakeTitle = "[olive]Take From The Ground:[/]"
     Friend Const YesText = "Yes"

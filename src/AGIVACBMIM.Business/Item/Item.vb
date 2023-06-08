@@ -29,6 +29,12 @@
         End Get
     End Property
 
+    Public ReadOnly Property ItemType As String Implements IItem.ItemType
+        Get
+            Return ItemData.ItemType
+        End Get
+    End Property
+
     Public Sub AddVerb(key As String, name As String, parameters As IReadOnlyDictionary(Of String, Integer)) Implements IItem.AddVerb
         ItemData.Verbs.Add(
             key,

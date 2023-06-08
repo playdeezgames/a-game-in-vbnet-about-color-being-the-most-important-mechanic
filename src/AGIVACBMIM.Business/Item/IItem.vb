@@ -1,5 +1,6 @@
 ﻿Public Interface IItem
     ReadOnly Property Id As Integer
+    ReadOnly Property ItemType As String
     ReadOnly Property Name As String
     ReadOnly Property VerbNames As IEnumerable(Of String)
     ReadOnly Property Verb(verbName As String) As IVerb

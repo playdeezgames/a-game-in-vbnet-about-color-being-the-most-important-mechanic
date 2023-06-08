@@ -24,7 +24,7 @@
                         {StatisticTypes.Defend, 10},
                         {StatisticTypes.Jools, 0}
                     },
-                    canSpawn:=AddressOf OverworldOnly,
+                    canSpawn:=AddressOf TownOnly,
                     provisioner:=AddressOf N00bProvisioning)},
             {
                 Slime,

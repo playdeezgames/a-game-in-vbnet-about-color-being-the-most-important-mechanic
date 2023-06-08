@@ -72,6 +72,12 @@ Location:
         If avatar.HasItems Then
             prompt.AddChoice(InventoryText)
         End If
+        If otherCharacters.Any(Function(x) x.HasOffers) Then
+            prompt.AddChoice(SellText)
+        End If
+        If otherCharacters.Any(Function(x) x.HasPrices) Then
+            prompt.AddChoice(BuyText)
+        End If
         prompt.AddChoice(MainMenuText)
         Select Case AnsiConsole.Prompt(prompt)
             Case MoveText
@@ -86,6 +92,10 @@ Location:
                 Take.Run()
             Case RunText
                 Application.Run.Run()
+            Case SellText
+                Sell.Run()
+            Case BuyText
+                Buy.Run()
             Case Else
                 Throw New NotImplementedException
         End Select
