@@ -74,28 +74,28 @@ Public Module CharacterExtensions
                 CharacterTypes.Tint,
                 New Dictionary(Of String, Integer) From
                 {
-                    {ItemTypes.Snax, 2}
+                    {ItemTypes.Snax, 3}
                 }
             },
             {
                 CharacterTypes.Tone,
                 New Dictionary(Of String, Integer) From
                 {
-                    {ItemTypes.Snax, 2}
+                    {ItemTypes.Snax, 4}
                 }
             },
             {
                 CharacterTypes.Shade,
                 New Dictionary(Of String, Integer) From
                 {
-                    {ItemTypes.Snax, 2}
+                    {ItemTypes.Snax, 5}
                 }
             },
             {
                 CharacterTypes.Pigment,
                 New Dictionary(Of String, Integer) From
                 {
-                    {ItemTypes.Snax, 2}
+                    {ItemTypes.Snax, 6}
                 }
             }
         }
